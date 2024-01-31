@@ -1,4 +1,5 @@
 # Site Principal
+
 Power by WordPress
 <br />
 [![My Skills](https://skillicons.dev/icons?i=wordpress)](https://wordpress.org/)
@@ -12,4 +13,5 @@ Astra Theme
 - Advanced Custom Fields
 - Astra Widgets
 - Editor Clássico
+- Max Mega Menu
 - SiteOrigin CSS

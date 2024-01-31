@@ -19,30 +19,50 @@ $menu = get_field('menu_cat', $cat[0]);
 
 print_r($cat[0]);
 
-$post_data = get_queried_object();
+if( !isset($menu) ) {
+    print_r("Tentando outro jeito... <br/>");
 
-$author_id = $post_data->post_author;
+    $post_data = get_queried_object();
 
-$author_nickname = get_the_author_meta("nickname", $author_id);
-$author_meta = get_the_author_meta("user_nicename", $author_id);
+    $author_id = $post_data->post_author;
 
-//$categorias = get_categories($author_nickname);
+    $author_nickname = get_the_author_meta("nickname", $author_id);
+    $author_meta = get_the_author_meta("user_nicename", $author_id);
 
-print_r($author_nickname);
-print_r("---------");
-print_r($author_meta);
-print_r("<br/>");
-print_r("<br/>");
+    //$categorias = get_categories($author_nickname);
 
-//print_r($categorias);
-
-foreach ($categorias as &$cat) {
-    print_r($cat->slug);
+    print_r("author_nickname: $author_nickname <br/>");
+    print_r("author_meta: $author_meta <br/>");
     print_r("<br/>");
+
+    $menu = wp_get_nav_menu_object($author_nickname);
+}
+print_r("<br/>--------------------<br/>");
+print_r(get_nav_menu_locations());
+$menuu = get_registered_nav_menus();
+print_r("<br/>--------------------<br/>");
+
+
+// Get all registered menu locations and their associated menu IDs.
+$menu_locations = get_nav_menu_locations();
+
+// Replace 'secondary' with the name or slug of your secondary menu location.
+$secondary_menu_location = 'secondary_menu';
+
+// Check if the secondary menu location is set.
+if (isset($menu_locations[$secondary_menu_location])) {
+    // Retrieve the menu ID for the secondary menu.
+    $secondary_menu_id = $menu_locations[$secondary_menu_location];
+    print_r($menu_locations[$secondary_menu_location]);
+
+    // Output or use the secondary menu ID as needed.
+    echo 'Secondary Menu ID: ' . $secondary_menu_id;
+
+    $menu = wp_get_nav_menu_object($secondary_menu_id);
+} else {
+    echo 'Secondary Menu not found.';
 }
 
-$menu = wp_get_nav_menu_object($author_nickname);
-print_r($menu);
 
 
 // Renderizando o sidemenu com Walker próprio
