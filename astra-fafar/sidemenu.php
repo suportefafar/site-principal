@@ -1,6 +1,6 @@
 
 <!--
-    TÍTULO DO MENU NA SIDEBAR
+    ---------------------------------
 -->
 
 <div class="d-flex justify-content-between align-items-center mb-4 container-title-sidemenu">
@@ -13,15 +13,54 @@
 
 <?php
 
-$post_data = get_queried_object();
+/*
+    Was defined that:
+        The Primary Menu would be the header menu;
+        The Secondary Menu would be the home page sidemenu;
+    
+    So...
+*/
 
-$author_id = $post_data->post_author;
+if ( is_home() ) {
 
-$author_nickname = get_the_author_meta("nickname", $author_id);
+    $menu_locations = get_nav_menu_locations();
 
-$menu = wp_get_nav_menu_object($author_nickname);
+    $secondary_menu_location = 'secondary_menu';
 
-// Renderizando o sidemenu com Walker próprio
+    if ( isset( $menu_locations[ $secondary_menu_location ] ) ) {
+
+        $secondary_menu_id = $menu_locations[ $secondary_menu_location ];
+
+        $menu = wp_get_nav_menu_object( $secondary_menu_id );
+    } else {
+
+        // 'Secondary Menu not found.';
+        
+    }
+
+} else {
+
+    $cat = get_the_category();
+
+    $menu = get_field('menu_cat', $cat[0]);
+
+    if( !isset($menu) ) {
+
+        $post_data = get_queried_object();
+
+        $author_id = $post_data->post_author;
+
+        $author_nickname = get_the_author_meta("nickname", $author_id);
+
+        $menu = wp_get_nav_menu_object($author_nickname);
+    }
+
+}
+
+/* 
+    Rendering the sidemenu with custom Menu Walker
+*/
+
 wp_nav_menu(array(
     'menu'            => $menu,
     'depth'           => 2,
