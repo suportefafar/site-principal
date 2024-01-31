@@ -5,11 +5,11 @@ Power by WordPress
 
 ## Tema Pai
 
-	Astra Theme
+Astra Theme
 
 ## Lista de plugins
 
-	- Advanced Custom Fields
-	- Astra Widgets
-	- Editor Clássico
-	- SiteOrigin CSS
+- Advanced Custom Fields
+- Astra Widgets
+- Editor Clássico
+- SiteOrigin CSS
