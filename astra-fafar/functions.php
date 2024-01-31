@@ -41,6 +41,23 @@ function add_footer_custom_scripts(){
 
 add_action( 'wp_footer', 'add_footer_custom_scripts' );
 
+
+
+/*
+ *	
+ *	
+ *	
+ *	
+ *	
+ *	
+ *	
+ *	
+ *	
+ *	    <<<<<<<<<<<<< START >>>>>>>>>>>
+ *		ADDED BY Setor de Suporte e T.I. 
+*/
+
+
 /**
  * Register Custom Navigation Walker
  */
@@ -58,7 +75,9 @@ function register_fafar_custom_banner(){
 }
 add_action( 'after_setup_theme', 'register_fafar_custom_banner' );
 
-
+/*
+ * Changing "Read More" button text  
+ */
 function new_astra_read_more_button() { return __( 'Leia Mais »', 'astra' ); }
 
 add_filter( 'astra_post_read_more', 'new_astra_read_more_button' );
