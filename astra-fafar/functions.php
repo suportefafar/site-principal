@@ -49,8 +49,11 @@ function register_fafar_menu_walker(){
 }
 add_action( 'after_setup_theme', 'register_fafar_menu_walker' );
 
-function funcao($a) {
-	return $a . "ESSA È MINHA ADIÇÃO";
-}
 
-add_action( "ast_main_header_display", "funcao" );
+/*
+ *	Register FAFAR Custom Banner 
+ * */
+function register_fafar_custom_banner(){
+	require_once get_theme_file_path() . '/banner.php';
+}
+add_action( 'after_setup_theme', 'register_fafar_custom_banner' );
