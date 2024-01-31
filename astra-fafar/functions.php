@@ -57,3 +57,8 @@ function register_fafar_custom_banner(){
 	require_once get_theme_file_path() . '/banner.php';
 }
 add_action( 'after_setup_theme', 'register_fafar_custom_banner' );
+
+
+function new_astra_read_more_button() { return __( 'Leia Mais »', 'astra' ); }
+
+add_filter( 'astra_post_read_more', 'new_astra_read_more_button' );

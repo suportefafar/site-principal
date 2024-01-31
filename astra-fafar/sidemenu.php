@@ -3,7 +3,7 @@
     ---------------------------------
 -->
 
-<div class="d-flex justify-content-between align-items-center mb-4 container-title-sidemenu">
+<div class="d-flex justify-content-between align-items-center mb-4 container-title-sidemenu d-none">
     <h5 class="title-sidemenu">ACESSO RÁPIDO</h5>
     <img
         src="https://www.farmacia.ufmg.br/wp-content/uploads/2023/12/icon.png"

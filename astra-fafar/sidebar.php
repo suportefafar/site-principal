@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+
 $astra_sidebar = apply_filters( 'astra_get_sidebar', 'sidebar-1' );
 
 echo '<div ';
