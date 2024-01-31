@@ -43,3 +43,89 @@ Template: astra
 
 .quadmenu-text.hover.t_1000 {
 }
+
+/**
+ *  Banner
+ *  START
+ */
+
+.page-banner-container {
+  width: 100%;
+  height: 32vh;
+
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.page-banner-body {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+h2.page-banner-title {
+  color: white;
+}
+
+h3.page-banner-subtitle {
+  color: yellow;
+}
+
+.banner-image-custom-transition {
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*
+    Banner
+    END
+*/
