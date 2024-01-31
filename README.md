@@ -1,8 +1,9 @@
 # Site Principal
 Power by WordPress
-[![My Skills](https://skillicons.dev/icons?i=wordpress)](https://skillicons.dev)
+<br />
+[![My Skills](https://skillicons.dev/icons?i=wordpress)](https://wordpress.org/)
 
-## Thema Pai
+## Tema Pai
 
 	Astra Theme
 
