@@ -1,1 +1,2 @@
-# site-principal
+# Site Principal
+## Power by WordPress
