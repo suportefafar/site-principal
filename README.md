@@ -1,6 +1,6 @@
 # Site Principal
 Power by WordPress
-
+[![My Skills](https://skillicons.dev/icons?i=wordpress)](https://skillicons.dev)
 
 ## Thema Pai
 
