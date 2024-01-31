@@ -1,4 +1,4 @@
-# Site Principal - DEV
+# Site Principal
 
 Power by WordPress
 <br />
