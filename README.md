@@ -15,3 +15,9 @@ Astra Theme
 - Editor Clássico
 - Max Mega Menu
 - SiteOrigin CSS
+
+## Sobre o Banner
+
+O título recebe a descrição do usuário autor da página.
+
+## Sobre o Sidemenu
