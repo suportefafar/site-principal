@@ -8,7 +8,8 @@ function get_custom_banner() {
 	
 	if( !is_search() && !is_404() ) {
 
-		$banner_image_url = '';
+        // Set a default image URL
+        $banner_image_url = 'https://www.farmacia.ufmg.br/wp-content/uploads/2015/06/fafar1.jpg';
         $title = '';
         $subtitle = '';
 
@@ -16,13 +17,12 @@ function get_custom_banner() {
     
         $category = $categories[0];
     
-        if( isset( $category ) ) {
+        if( isset( $category ) && !is_home() ) {
                 
             $slider = $wpdb->get_row( "SELECT * FROM wp_revslider_sliders WHERE alias = '$category->slug'" );
 
             // Banner Content
             $title  = $category->description;
-            $subtitle  = '';
 
         } else {
 
@@ -36,14 +36,12 @@ function get_custom_banner() {
 
             // Banner Content
             $title  = get_the_author_meta( 'description', $author_id );
-            
-            $subtitle  = '';
 
         }
 
         $slides = $wpdb->get_results( "SELECT * FROM wp_revslider_slides WHERE slider_id = $slider->id" );
 
-        if( count( $slides ) > 0 ) {
+        if( count( $slides ) > 0 && !is_home() ) {
 
             $newest_slide =  end($slides);
 
@@ -52,11 +50,6 @@ function get_custom_banner() {
             $relative_image_slide_url = explode( 'wp-content', $image_slide_url )[1];
 
             $banner_image_url = site_url( '/wp-content' . $relative_image_slide_url, 'https' );
-
-        } else { 
-
-            // Set a default image URL
-            $banner_image_url = 'https://www.farmacia.ufmg.br/wp-content/uploads/2015/06/fafar1.jpg';
 
         }
 
