@@ -3,6 +3,7 @@
     ---------------------------------
 -->
 
+<!-- This piece has 'd-none' on the end, so it is not being shown -->
 <div class="d-flex justify-content-between align-items-center mb-4 container-title-sidemenu d-none">
     <h5 class="title-sidemenu">ACESSO RÁPIDO</h5>
     <img

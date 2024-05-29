@@ -15,7 +15,7 @@ Template: astra
 }
 
 .fafar-side-menu-sub-item {
-  background-color: #fff !important;
+  background-color: #eee !important;
   justify-content: left !important;
 }
 
@@ -128,4 +128,18 @@ h3.page-banner-subtitle {
 /*
     Banner
     END
+*/
+
+/*
+  Contact Form 7
+  START
+*/
+
+form.wpcf7-form label {
+  width: 100%;
+}
+
+/*
+  Contact Form 7
+  END
 */
