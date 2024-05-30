@@ -1,0 +1,162 @@
+<h4> Vaga </h4>
+
+<label>* Nível da Vaga </label>
+[radio NivelDaVaga use_label_element default:1 "Mestrado" "Doutorado"]
+
+<label>* Tipo de Vaga </label>
+   [radio TipoDaVaga use_label_element default:1 "Ampla concorrência" "Estrangeiro" "Reserva de vagas para negros" "Reserva de vagas para indígenas" "Reserva de vagas para portadores de necessidades especiais"]
+
+<hr/>
+<h4> Dados Pessoais </h4>
+
+<label>* Nome Completo
+    [text* NomeCompleto autocomplete:name] </label>
+
+<label>* Sexo </label>
+    [radio Sexo use_label_element default:1 "Feminino" "Masculino"]
+
+<label>* Data De Aniversário
+    [date* DataDeAniversario min:1900-04-04] </label>
+
+<label>* E-mail
+    [email* Email autocomplete:email] </label>
+
+<label>* Telefone
+    [tel* Telefone class:phone] </label>
+
+[group documento-identificacao-brasileiro clear_on_hide]
+
+   <label>* CPF
+       [text* CPF class:cpf] </label>
+
+[/group]
+
+[group documento-identificacao-estrangeiro clear_on_hide]
+
+   <label>* Passaporte
+       [text* Passaporte] </label>
+
+[/group]
+
+<hr/>
+
+<h4> Documentação </h4>
+<small><em> Tamanho máx.: 8mb(individual) </em></small>
+
+<label>* Cópia da certidão de nascimento ou de casamento ou separação </label>
+   [file* CertidaoNascimentoCasadoSeparacao limit:8mb filetypes:.pdf]
+
+<label>* Cópia frente e verso diploma de graduação ou documento que comprove que o candidato está em condições de concluir a graduação </label>
+   [file* DiplomaGraduacao limit:8mb filetypes:.pdf]
+
+<label>* Curriculum no modelo Lattes/CNPq </label>
+   [file* Lattes limit:8mb filetypes:.pdf]
+
+<label>* Comprovantes das publicações/atividades listadas no Lattes em arquivo único </label>
+   [file* PublicacoesAtividades limit:8mb filetypes:.pdf]
+
+<label>* Cópia de certidão de quitação eleitoral a ser <a href="https://www.tse.jus.br/eleitor/certidoes/certidao-de-quitacao-eleitoral" target="_blank">obtida aqui</a> </label>
+   [file* CertidaoQuitacaoEleitoral limit:8mb filetypes:.pdf]
+
+<label>* Cópia do comprovante de residência </label>
+   [file* ComprovanteResidencia limit:8mb filetypes:.pdf]
+
+[group arquivo-masculino-brasileiro clear_on_hide]
+
+   <label>* Comprovante de estar em dia com as obrigações militares, no caso de brasileiro e do sexo masculino. Carimbo, no documento militar e/ou no verso do diploma, da comunicação da conclusão da graduação à autoridade militar, como no <a href="https://www.farmacia.ufmg.br/wp-content/uploads/2022/08/modelo_carimbo.jpg" target="_blank">exemplo</a> </label>
+      [file* ComprovanteMilitar limit:8mb filetypes:.pdf]
+
+[/group]
+
+[group arquivos-brasileiro clear_on_hide]
+
+   <label>* Identidade </label>
+      [file* Identidade limit:8mb filetypes:.pdf]
+
+   <label>* CPF </label>
+      [file* CPF limit:8mb filetypes:.pdf]
+
+[/group]
+
+[group arquivos-estrangeiro clear_on_hide]
+
+   <label>* Passaporte </label>
+      [file* Passaporte limit:8mb filetypes:.pdf]
+
+   <label>* Comprovante conhecimento de língua portuguesa </label>
+      [file* ComprovanteLinguaPortuguesa limit:8mb filetypes:.pdf]
+
+[/group]
+
+[group arquivos-mestrado clear_on_hide]
+
+   <label>* Cópia do histórico escolar do curso de graduação </label>
+      [file* HistoricoGraduacao limit:8mb filetypes:.pdf]
+
+[/group]
+
+
+[group arquivos-doutorado clear_on_hide]
+
+   <label>* Projeto de tese </label>
+      [file* ProjetoTese limit:8mb filetypes:.pdf]
+
+   <label>Cópia do diploma de Mestrado frente e verso </label>
+      [file DiplomaMestrado limit:8mb filetypes:.pdf]
+
+   <label>* Histórico escolar do curso de pós-graduação </label>
+      [file* HistoricoPosGraduacao limit:8mb filetypes:.pdf]
+
+[/group]
+
+[group arquivos-vagas-negros clear_on_hide]
+
+   <label>* <a href="https://www.farmacia.ufmg.br/wp-content/uploads/2022/11/PG_Autodeclaracao-negros_modeloDRCA1-1.pdf" target="_blank">Formulário</a> de autodeclaração étnico-racial preenchido </label>
+      [file* AutodeclaracaoEtnicoRacial limit:8mb filetypes:.pdf]
+
+[/group]
+
+[group arquivos-vagas-indigenas clear_on_hide]
+
+   <label>* <a href="https://www.farmacia.ufmg.br/wp-content/uploads/2022/11/PG_Declaracao-de-Autoreconhecimento_Indigena.pdf" target="_blank">Declaração</a> de autorreconhecimento indígena </label>
+      [file* AutorreconhecimentoIndigena limit:8mb filetypes:.pdf]
+
+   <label>* <a href="https://www.farmacia.ufmg.br/wp-content/uploads/2022/11/PG_Declaracao-de-Liderancas-Indigenas.pdf" target="_blank">Declaração</a> assinada por pelo menos três lideranças indígenas </label>
+      [file* DeclaracaoLinderancaIndigena limit:8mb filetypes:.pdf]
+
+   <label>* <a href="https://www.farmacia.ufmg.br/wp-content/uploads/2022/11/PG_Declaracao-de-Residencia_Indigena.pdf" target="_blank">Declaração</a> da Funai atestando residência em comunidade indígena </label>
+      [file* DeclaracaoFunai limit:8mb filetypes:.pdf]
+
+[/group]
+
+[group arquivos-vagas-pcds clear_on_hide]
+
+   <label>* <a href="https://www.farmacia.ufmg.br/wp-content/uploads/2022/11/Autodeclaracao-Pessoa-com-Deficiencia.pdf" target="_blank">Autodeclaração</a> de pessoa com deficiência </label>
+      [file* AutodeclaracaoDeficiente limit:8mb filetypes:.pdf]
+
+   <label>* <a href="https://www.farmacia.ufmg.br/wp-content/uploads/2022/11/MODELO_RELATORIO_MEDICO_ASSISTENTE.docx" target="_blank">Relatório</a> do médico assistente </label>
+      [file* RelatorioMedico limit:8mb filetypes:.pdf]
+
+   <label><a href="https://www.farmacia.ufmg.br/wp-content/uploads/2022/11/FORMULARIO_SOLICITACAO_CONDICOES_ESPECIAIS_REALIZACAO-PROVA.docx" target="_blank">Formulário</a> de solicitação de condições especiais para realizar a prova </label>
+      [file CondicoesEspeciaisProva limit:8mb filetypes:.pdf]
+
+[/group]
+
+[group arquivos-edital-regular clear_on_hide]
+
+   <label>* <a href="https://www.farmacia.ufmg.br/wp-content/uploads/2022/11/Formulario-Inscricao_Selecao-EDITAL-REGULAR-2023.doc" target="_blank">Anexo I</a> (formulário de inscrição) preenchido com foto atual 3x4 </label>
+      [file* AnexoIEditalRegular limit:8mb filetypes:.pdf]
+
+[/group]
+
+[group arquivos-edital-complementar clear_on_hide]
+
+   <label>* <a href="https://www.farmacia.ufmg.br/wp-content/uploads/2022/11/Formulario-Inscricao_Selecao-EDITAL-SUPLEMENTAR-2023.doc" target="_blank">Anexo I</a> (formulário de inscrição) preenchido com foto atual 3x4 </label>
+      [file* AnexoIEditalComplementar limit:8mb filetypes:.pdf]
+
+[/group]
+
+<label> Comprovante de aprovação em exame de conhecimento de língua inglesa </label>
+   [file ExameLinguaIngles limit:8mb filetypes:.pdf]
+
+[submit "Enviar"]
