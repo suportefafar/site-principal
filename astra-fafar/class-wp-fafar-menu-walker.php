@@ -28,8 +28,8 @@ if ( ! class_exists( 'FAFAR_Menu_Walker' ) ) :
 
 		function start_lvl(&$output, $depth = 0, $args = null)
 		{
-			$output .= "<ul class='collapse list-group rounded-0 m-0' id='sub-menu-" . $this->incremental_sub_menu_id . "'>";
-			$this->incremental_sub_menu_id += 1;
+			$output .= "<ul class='collapse list-group rounded-0 m-0' id='sub-menu-" . @$this->incremental_sub_menu_id . "'>";
+			@$this->incremental_sub_menu_id += 1;
 		}
 	  
 		function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
@@ -39,7 +39,7 @@ if ( ! class_exists( 'FAFAR_Menu_Walker' ) ) :
 			$down_arrow  = "<span class='dashicons dashicons-arrow-down'></span>";
 
 
-			$href 	  = ( $item->url && $item->url != "#" && !$args->walker->has_children ) ? $item->url : "#sub-menu-" . $this->incremental_sub_menu_id . "" ;
+			$href 	  = ( $item->url && $item->url != "#" && !$args->walker->has_children ) ? $item->url : "#sub-menu-" . @$this->incremental_sub_menu_id . "" ;
 			
 			$classes  = implode( " ", $args->item_classes );
 			$classes .= " ";
@@ -50,7 +50,7 @@ if ( ! class_exists( 'FAFAR_Menu_Walker' ) ) :
 
 			
 			$attrs  = ( $args->walker->has_children ) ? 
-				"data-bs-toggle='collapse' role='button' aria-expanded='false' aria-controls='sub-menu-" . $this->incremental_sub_menu_id . "' " 
+				"data-bs-toggle='collapse' role='button' aria-expanded='false' aria-controls='sub-menu-" . @$this->incremental_sub_menu_id . "' " 
 				: 
 				" aria-current='true'";
 			$attrs .= " ";

@@ -28,6 +28,7 @@ add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 function add_header_custom_scripts(){
 	?>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<?php
 }
 
@@ -78,6 +79,22 @@ add_action( 'after_setup_theme', 'register_fafar_custom_banner' );
 /*
  * Changing "Read More" button text  
  */
-function new_astra_read_more_button() { return __( 'Leia Mais »', 'astra' ); }
+function translate_read_more_button() { return __( 'Leia Mais »', 'astra' ); }
 
-add_filter( 'astra_post_read_more', 'new_astra_read_more_button' );
+add_filter( 'astra_post_read_more', 'translate_read_more_button' );
+
+/*
+ * Changing "Read More" button text  
+ */
+function translate_next_page() { return __( 'Próximo »', 'astra' ); }
+
+add_filter( 'astra_single_post_navigation', 'translate_next_page' );
+
+/*
+ * Dynamic Pages Handler
+ * Theme hooks: astra_entry_content_before, astra_entry_content_after, astra_entry_bottom
+ */
+function register_dynamic_pages_handler(){
+	require_once get_theme_file_path() . '/dynamic-pages.php';
+}
+add_action( 'after_setup_theme', 'register_dynamic_pages_handler' );

@@ -10,6 +10,10 @@ Text Domain: astra-fafar
 Template: astra
 */
 
+p {
+  text-align: justify !important;
+}
+
 .fafar-side-menu-item {
   font-family: Georgia, "Times New Roman", Times, serif;
 }

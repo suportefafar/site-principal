@@ -4,10 +4,10 @@
 -->
 
 <!-- This piece has 'd-none' on the end, so it is not being shown -->
-<div class="d-flex justify-content-between align-items-center mb-4 container-title-sidemenu d-none">
+<div class="d-flex justify-content-between align-items-center mb-4 container-title-sidemenu">
     <h5 class="title-sidemenu">ACESSO RÁPIDO</h5>
     <img
-        src="https://www.farmacia.ufmg.br/wp-content/uploads/2023/12/icon.png"
+        src="https://www.farmacia.ufmg.br/wp-content/uploads/2024/03/icon.png"
         alt="Ícone Acesso Rápido"
     />
 </div>
@@ -22,7 +22,19 @@
     So...
 */
 
-if ( is_home() ) {
+function get_institucional_menu() {
+
+    $institucional_menu_id = 4;
+
+    $menu = wp_get_nav_menu_object( $institucional_menu_id );
+
+    return $menu;
+
+}
+
+function get_secondary_menu() {
+
+    $menu = array();
 
     $menu_locations = get_nav_menu_locations();
 
@@ -33,28 +45,61 @@ if ( is_home() ) {
         $secondary_menu_id = $menu_locations[ $secondary_menu_location ];
 
         $menu = wp_get_nav_menu_object( $secondary_menu_id );
+
     } else {
 
-        // 'Secondary Menu not found.';
+        // 'Secondary Menu' not found
+        $menu = get_institucional_menu();
         
     }
 
-} else {
+    return $menu;
 
-    $cat = get_the_category();
+}
 
-    $menu = get_field('menu_cat', $cat[0]);
+function get_menu_by_user() {
 
-    if( !isset($menu) ) {
+    // DEFAULT $menu
+    $menu = get_institucional_menu();
 
-        $post_data = get_queried_object();
+    //SECONDARY FORM TO GET $menu
+    $category = get_the_category();
 
-        $author_id = $post_data->post_author;
-
-        $author_nickname = get_the_author_meta("nickname", $author_id);
-
-        $menu = wp_get_nav_menu_object($author_nickname);
+    if( isset( $category[0] ) ) {
+        if( get_field( 'menu_cat', $category[0] ) )
+            $menu = get_field( 'menu_cat', $category[0] );
     }
+
+    //PRIMARY FORM TO GET $menu
+    $post_author_id = get_post_field( 'post_author' );
+
+    $user = get_user_by( 'id', $post_author_id );
+    
+    $author_category_array = get_user_meta( $user->ID, '_author_cat', true );
+
+    if( @$author_category_array[0] ) {
+
+        $author_category_wp_obj = get_category( $author_category_array[0] ); 
+
+        $term_id = $author_category_wp_obj->term_id;
+
+        $fields = get_fields( "category_" . $term_id );
+        
+        if( $fields[ 'menu_cat' ] )
+            $menu = $fields[ 'menu_cat' ];
+
+    }
+
+    return $menu;
+
+}
+
+// Get menu by user as default option
+$menu = get_menu_by_user();
+
+if ( is_home() ) {
+
+    $menu = get_secondary_menu();
 
 }
 

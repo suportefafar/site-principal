@@ -13,11 +13,13 @@ function get_custom_banner() {
         $title = '';
         $subtitle = '';
 
+        $slider = '';
+
         $categories = get_the_category();
     
-        $category = $categories[0];
-    
-        if( isset( $category ) && !is_home() ) {
+        if( isset( $categories[0] ) && !is_home() ) {
+
+            $category = $categories[0];
                 
             $slider = $wpdb->get_row( "SELECT * FROM wp_revslider_sliders WHERE alias = '$category->slug'" );
 
@@ -39,11 +41,12 @@ function get_custom_banner() {
 
         }
 
-        $slides = $wpdb->get_results( "SELECT * FROM wp_revslider_slides WHERE slider_id = $slider->id" );
+        if( isset( $slider->id ) )
+            $slides = $wpdb->get_results( "SELECT * FROM wp_revslider_slides WHERE slider_id = $slider->id" );
 
-        if( count( $slides ) > 0 && !is_home() ) {
+        if( isset( $slides ) && count( $slides ) > 0 && !is_home() ) {
 
-            $newest_slide =  end($slides);
+            $newest_slide =  end( $slides );
 
             $image_slide_url = json_decode( $newest_slide->params )->image;
 
